@@ -9,8 +9,7 @@
     <link href="css/body.css" rel="stylesheet">
     <link href="css/header.css" rel="stylesheet">
     <link href="css/container.css" rel="stylesheet">
-    <link href="css/button.css" rel="stylesheet">
-    <link href="css/input.css" rel="stylesheet">
+    <link href="css/flex.css" rel="stylesheet">
     <script src="js/scrit.js" defer></script>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -24,9 +23,9 @@
     <div class="container">
         <form>
             <h2 class="container__header">Dodaj nowe zadanie</h2>
-            <div class="container__main">
-                <input class="js-newTask input" placeholder="Co jest do zrobienia?" autofocus>
-                <button class="button js-button ">Dodaj zadanie</button>
+            <div class="flex">
+                <input class="js-newTask flex__input" placeholder="Co jest do zrobienia?" autofocus>
+                <button type="submit" class="flex__button js-button ">Dodaj zadanie</button>
             </div>
         </form>
         <h2 class="container__listName">Lista zadań</h2>

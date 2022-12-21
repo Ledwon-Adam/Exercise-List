@@ -22,7 +22,6 @@
 
     const init = () => {
         render();
-
     };
 
     init();
