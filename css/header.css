@@ -1,0 +1,9 @@
+.header {
+    text-align: left;
+    max-width: 1000px;
+    margin: 0 auto;
+    margin-top: 50px;
+    margin-bottom: 25px;
+    background-color: lightgrey;
+    font-family: "Lato", sans-serif;
+}

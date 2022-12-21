@@ -1,0 +1,16 @@
+.button {
+    padding : 10px;
+    background-color: teal;
+    color: white;
+    border: none;
+    width: 100%;
+    max-width: 110px;
+    margin-left: 17px;
+}
+
+.button:hover {
+    padding : 10px;
+    background-color: rgb(12, 187, 187);
+    color: white;
+    border: none;
+}
