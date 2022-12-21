@@ -11,9 +11,12 @@
     <link href="css/container.css" rel="stylesheet">
     <link href="css/button.css" rel="stylesheet">
     <link href="css/input.css" rel="stylesheet">
+    <script src="js/scrit.js" defer></script>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link href="https://fonts.googleapis.com/css2?family=Lato&display=swap" rel="stylesheet">  
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Lato&display=swap" rel="stylesheet">
 </head>
 
 <body class="body, body__background">
@@ -22,14 +25,14 @@
         <form>
             <h2 class="container__header">Dodaj nowe zadanie</h2>
             <div class="container__main">
-                <input class="js-exercise input" placeholder="Co jest do zrobienia?" autofocus></input>
-                <button type="submit" class="button js-button ">Dodaj zadanie</button>
-            </div>
-            <h2 class="container__listName">Lista zadań</h2>
-            <div class="container__list">
-
+                <input class="js-newTask input" placeholder="Co jest do zrobienia?" autofocus>
+                <button class="button js-button ">Dodaj zadanie</button>
             </div>
         </form>
+        <h2 class="container__listName">Lista zadań</h2>
+        <div class="container__list">
+            <ul class="js-tasks"></ul>
+        </div>
     </div>
 </body>
 
