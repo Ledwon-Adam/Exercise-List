@@ -18,7 +18,9 @@
         for (const task of tasks) {
             htmlString += `
             <li class="list">
+            <button class="js-done list__button--done"></button>
                 ${task.content}
+            <button class="js-remove list__button--remove">🗑</button>
             </li>
             `;
         }
@@ -40,7 +42,7 @@
 
         render();
     }
-
+    
     const init = () => {
         render();
 

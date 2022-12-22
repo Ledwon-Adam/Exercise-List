@@ -1,13 +1,30 @@
-.list{
+.list {
     display: grid;
     grid-template-columns: auto;
     border-bottom: solid rgb(240, 240, 240);
     text-decoration: none;
 }
 
-.listDone{
-    display: grid;
-    grid-template-columns: auto;
-    border-bottom: solid rgb(240, 240, 240);
-    text-decoration: solid;
+.list__taskName {
+    word-break: break-word;
+}
+
+.list__taskName--done {
+    text-decoration: line-through;
+}
+
+.list__button--remove {
+    height: 30px;
+    width: 30px;
+    background-color: #ff0000;
+    color: white;
+    border: 1px;
+}
+
+.list__button--done {
+    height: 30px;
+    width: 30px;
+    background-color: #008000;
+    color: white;
+    border: 1px;
 }
