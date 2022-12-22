@@ -4,6 +4,10 @@
                 content: "Przykładowe zadanie",
                 done: true,
             },
+            {
+                content: "Przykładowe zadanie false",
+                done: false,
+            },
     ];
 
     const render = () => {
@@ -17,7 +21,7 @@
             `;
         }
 
-        document.querySelector("js-tasks").innerHTML = htmlString;
+        document.querySelector(".js-tasks").innerHTML = htmlString;
     };
 
     const init = () => {
