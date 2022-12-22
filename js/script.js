@@ -1,21 +1,21 @@
 {
     const tasks = [
-            {
-                content: "Przykładowe zadanie",
-                done: true,
-            },
-            {
-                content: "Przykładowe zadanie false",
-                done: false,
-            },
+        {
+            content: "Test",
+            done: false,
+        },
+        {
+            content: "Test 2",
+            done: true,
+        },
     ];
 
     const render = () => {
         let htmlString = "";
-        
+
         for (const task of tasks) {
             htmlString += `
-            <li>
+            <li class="list">
                 ${task.content}
             </li>
             `;
