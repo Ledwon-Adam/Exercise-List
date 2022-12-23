@@ -1,8 +1,8 @@
 .flex__container {
     display: flex;
     flex-direction: row;
-    padding : 14px;
-    background-color : white;
+    padding: 14px;
+    background-color: white;
 }
 
 .flex__input {
@@ -12,29 +12,32 @@
 }
 
 .flex__button {
-    padding : 10px;
+    padding: 10px;
     background-color: rgb(12, 139, 139);
     color: white;
     border: none;
     flex-basis: 20%;
-} 
+}
 
 .flex__button:hover {
-    padding : 10px;
+    padding: 10px;
     background-color: rgb(11, 182, 182);
     color: white;
     border: none;
 }
+
 @media (max-width: 767px) {
     .flex__container {
         flex: 1 0 0;
         flex-wrap: wrap;
         justify-content: center;
-       
+
     }
+
     .flex__button {
         flex-basis: 100%;
     }
+
     .flex__input {
         flex-basis: 100%;
         margin-bottom: 10px;

@@ -1,28 +1,27 @@
-.container {   
+.container {
     background-color: rgb(240, 240, 240);
     max-width: 1000px;
-    margin : 0 auto;
+    margin: 0 auto;
     font-family: "Lato", sans-serif;
     line-height: 1.5;
 }
 
 .container__header {
-    background-color : white;
+    background-color: white;
     padding: 14px;
     margin-bottom: 2px;
 }
 
 .container__listName {
     margin-top: 9px;
-    background-color : white;
+    background-color: white;
     padding: 14px;
     margin-bottom: 2px;
 }
 
 .container__list {
-    background-color : white;
-    padding : 14px;
+    background-color: white;
+    padding: 14px;
     min-height: 55px;
 
 }
-
