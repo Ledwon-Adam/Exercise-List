@@ -9,12 +9,13 @@
     margin-left: -43px;
 }
 
-.list__taskName {
+.list__item {
     word-break: break-word;
 }
 
-.list__taskName--done {
+.list__item--done {
     text-decoration: line-through;
+    word-break: break-word;
 }
 
 .list__button--remove {

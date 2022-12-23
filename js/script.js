@@ -24,16 +24,44 @@
         render();
     }
 
+    const toogleTaskDone = (taskIndex) => {
+        tasks[taskIndex].done = !tasks[taskIndex].done;
+        render();
+    }
+
+    const bindEvenets = () => {
+        const removeButtons = document.querySelectorAll(".js-remove");
+
+        removeButtons.forEach((removeButtons, index) => {
+            removeButtons.addEventListener("click", () =>{
+                removeTask(index);
+            });
+        });
+
+        const toggleDoneButtons = document.querySelectorAll(".js-done");
+
+        toggleDoneButtons.forEach((toogleDoneButton, index) => {
+            toogleDoneButton.addEventListener("click", () =>{
+                toogleTaskDone(index);
+                
+            });
+        });
+    }
+
     const render = () => {
         let htmlString = "";
-        if (tasks.done) {
+        if (tasks.done) { 
 
         }
         for (const task of tasks) {
             htmlString += `
             <li class="list">
-            <button class="js-done list__button--done"></button>
+            <button class="js-done list__button--done">
+            ${task.done ? "✔":""}
+            </button>
+            <span class ="list__item${task.done ? " list__item--done" :""}">
                 ${task.content}
+            </span>
             <button class="js-remove list__button--remove">🗑</button>
             </li>
             `;
@@ -41,16 +69,7 @@
 
         document.querySelector(".js-tasks").innerHTML = htmlString;
 
-        const removeButtons = document.querySelectorAll(".js-remove");
-        console.log(removeButtons);
-        const doneButtons = document.querySelectorAll(".js-done");
-        console.log(doneButtons);
-
-        removeButtons.forEach((removeButtons, index) => {
-            removeButtons.addEventListener("click", () =>{
-                removeTask(index);
-            });
-        });
+        bindEvenets();
     };
 
 
