@@ -10,6 +10,20 @@
         },
     ];
 
+    const addNewTask = (newTaskContent) => {
+        
+        tasks.push({
+            content: newTaskContent,
+        })
+
+        render();
+    }
+
+    const removeTask = (taskIndex) => {
+        tasks.splice(taskIndex, 1);
+        render();
+    }
+
     const render = () => {
         let htmlString = "";
         if (tasks.done) {
@@ -26,7 +40,19 @@
         }
 
         document.querySelector(".js-tasks").innerHTML = htmlString;
+
+        const removeButtons = document.querySelectorAll(".js-remove");
+        console.log(removeButtons);
+        const doneButtons = document.querySelectorAll(".js-done");
+        console.log(doneButtons);
+
+        removeButtons.forEach((removeButtons, index) => {
+            removeButtons.addEventListener("click", () =>{
+                removeTask(index);
+            });
+        });
     };
+
 
     const onFormSubmit = (event) => {
         event.preventDefault();
@@ -36,12 +62,9 @@
             return;
         }
 
-        tasks.push({
-            content: newTaskContent,
-        })
-
-        render();
+        addNewTask(newTaskContent);
     }
+    
     
     const init = () => {
         render();
