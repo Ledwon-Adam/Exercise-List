@@ -1,14 +1,5 @@
 {
-    const tasks = [
-        {
-            content: "Test",
-            done: false,
-        },
-        {
-            content: "Test 2",
-            done: true,
-        },
-    ];
+    const tasks = [];
 
     const addNewTask = (newTaskContent) => {
         
@@ -29,7 +20,7 @@
         render();
     }
 
-    const bindEvenets = () => {
+    const bindEvents = () => {
         const removeButtons = document.querySelectorAll(".js-remove");
 
         removeButtons.forEach((removeButtons, index) => {
@@ -69,19 +60,25 @@
 
         document.querySelector(".js-tasks").innerHTML = htmlString;
 
-        bindEvenets();
+        bindEvents();
     };
 
 
     const onFormSubmit = (event) => {
         event.preventDefault();
-        const newTaskContent = document.querySelector(".js-newTask").value.trim();
+        const newTaskContent = document.querySelector(".js-newTask");
+        const newTaskElement = newTaskContent.value.trim();
 
-        if (newTaskContent === "") {
+        if (newTaskElement === "") {
             return;
         }
 
-        addNewTask(newTaskContent);
+        if (newTaskElement !== ""){
+            addNewTask(newTaskElement);
+            newTaskContent.value="";
+        }
+
+        
     }
     
     
