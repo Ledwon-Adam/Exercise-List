@@ -1,6 +1,6 @@
 # To-do-list
 
-![calc](https://user-images.githubusercontent.com/120331981/207821842-97293b1f-0017-48b0-9af3-a724f248ecb0.png)
+![Lista](https://user-images.githubusercontent.com/120331981/209349896-2027201e-7079-400d-baee-209627bc05ef.gif)
 
 Demo:
 https://ledwon-adam.github.io/To-do-list/
