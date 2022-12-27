@@ -8,17 +8,17 @@
         })
 
         render();
-    }
+    };
 
     const removeTask = (taskIndex) => {
         tasks.splice(taskIndex, 1);
         render();
-    }
+    };
 
     const toogleTaskDone = (taskIndex) => {
         tasks[taskIndex].done = !tasks[taskIndex].done;
         render();
-    }
+    };
 
     const bindEvents = () => {
         const removeButtons = document.querySelectorAll(".js-remove");
@@ -37,7 +37,7 @@
 
             });
         });
-    }
+    };
 
     const render = () => {
         let htmlString = "";
@@ -46,17 +46,17 @@
         }
         for (const task of tasks) {
             htmlString += `
-            <li class="list">
-            <button class="js-done list__button--done">
+            <li class = "list">
+            <button class = "js-done list__button--done">
             ${task.done ? "✔" : ""}
             </button>
-            <span class ="list__item${task.done ? " list__item--done" : ""}">
+            <span class = "list__item${task.done ? " list__item--done" : ""}">
             ${task.content}
             </span>
-            <button class="js-remove list__button--remove">🗑</button>
+            <button class = "js-remove list__button--remove">🗑</button>
             </li>
             `;
-        }
+        };
 
         document.querySelector(".js-tasks").innerHTML = htmlString;
 
@@ -73,14 +73,10 @@
             return;
         }
 
-        if (newTaskContent !== "") {
-            addNewTask(newTaskContent);
-            newTaskElement.value = "";
-        }
+        addNewTask(newTaskContent);
+        newTaskElement.value = "";    
 
-       
-
-    }
+    };
 
     const init = () => {
         render();

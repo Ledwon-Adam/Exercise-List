@@ -1,3 +1,11 @@
+.container {
+    background-color: rgb(240, 240, 240);
+    max-width: 1000px;
+    margin: 0 auto;
+    font-family: "Lato", sans-serif;
+    line-height: 1.5;
+}
+
 .list {
     display: grid;
     grid-template-columns: auto 1fr auto;
@@ -7,6 +15,7 @@
     grid-gap: 20px;
     align-items: center;
     margin-left: -43px;
+    padding-top: -55px;
 }
 
 .list__item {

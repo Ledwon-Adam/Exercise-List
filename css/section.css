@@ -1,0 +1,21 @@
+.section__listName {
+    margin-top: 9px;
+    background-color: white;
+    padding: 14px;
+    max-width: 1000px;
+    margin: 0 auto;
+    font-family: "Lato", sans-serif;
+    line-height: 1.5;
+    margin-bottom: 2px;
+}
+
+.section__list {
+    background-color: white;
+    padding: 14px;
+    min-height: 55px;
+    padding-top: 1px;
+    max-width: 1000px;
+    margin: 0 auto;
+    font-family: "Lato", sans-serif;
+    line-height: 1.5;
+}

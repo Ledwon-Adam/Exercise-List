@@ -8,6 +8,14 @@ html {
     box-sizing: inherit;
 }
 
+.body {
+    background-color: rgb(240, 240, 240);
+    max-width: 1000px;
+    margin: 0 auto;
+    font-family: "Lato", sans-serif;
+    line-height: 1.5;
+}
+ 
 .body__background {
     background-color: rgb(240, 240, 240);
 }
