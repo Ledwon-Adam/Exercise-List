@@ -1,17 +1,20 @@
 {
-    const tasks = [];
+    let tasks = [];
+    let hideDoneTasks = false;
 
     const addNewTask = (newTaskContent) => {
-
-        tasks.push({
-            content: newTaskContent,
-        })
-
+        tasks = [
+            ...tasks,
+            { content: newTaskContent },
+        ];
         render();
     };
 
     const removeTask = (taskIndex) => {
-        tasks.splice(taskIndex, 1);
+        tasks = [
+            ...tasks.slice (0, taskIndex),
+            ...tasks.slice (taskIndex + 1),
+        ];
         render();
     };
 
@@ -20,7 +23,7 @@
         render();
     };
 
-    const bindEvents = () => {
+    const bindRemoveEvents = () => {
         const removeButtons = document.querySelectorAll(".js-remove");
 
         removeButtons.forEach((removeButtons, index) => {
@@ -28,18 +31,19 @@
                 removeTask(index);
             });
         });
-
+    };
+    
+    const bindToggleDoneEvents = () => {
         const toggleDoneButtons = document.querySelectorAll(".js-done");
 
         toggleDoneButtons.forEach((toogleDoneButton, index) => {
             toogleDoneButton.addEventListener("click", () => {
                 toogleTaskDone(index);
-
             });
         });
     };
 
-    const render = () => {
+    const renderTasks = () => {
         let htmlString = "";
         if (tasks.done) {
 
@@ -57,10 +61,19 @@
             </li>
             `;
         };
+        document.querySelector(".js-tasks").innerHTML = htmlString;        
+    };
 
-        document.querySelector(".js-tasks").innerHTML = htmlString;
+    const renderButtons = () => {};
 
-        bindEvents();
+    const bindButtonsEvents = () => {};
+
+    const render = () => {
+        renderTasks();
+        renderButtons();
+        bindRemoveEvents();
+        bindToggleDoneEvents();
+        bindButtonsEvents();
     };
 
     const onFormSubmit = (event) => {
@@ -75,7 +88,6 @@
 
         addNewTask(newTaskContent);
         newTaskElement.value = "";    
-
     };
 
     const init = () => {

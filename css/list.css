@@ -30,15 +30,25 @@
 .list__button--remove {
     height: 30px;
     width: 30px;
-    background-color: #ff0000;
+    background-color: hsl(0, 100%, 50%);
     color: white;
     border: 1px;
+    transition: 1s;
+}
+
+.list__button--remove:hover {
+    background-color: hsl(0, 100%, 60%);
 }
 
 .list__button--done {
     height: 30px;
     width: 30px;
-    background-color: #008000;
+    background-color: hsl(120, 100%, 25%);
     color: white;
     border: 1px;
+    transition: 1s;
+}
+
+.list__button--done:hover {
+    background-color: hsl(120, 100%, 35%);
 }

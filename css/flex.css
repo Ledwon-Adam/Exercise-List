@@ -16,18 +16,17 @@
 
 .flex__button {
     padding: 10px;
-    background-color: rgb(12, 139, 139);
+    background-color: hsl(180, 100%, 25%);
     color: white;
     border: none;
     flex-basis: 20%;
     font-size: 110%;
+    transition: 1s;
 }
 
 .flex__button:hover {
-    padding: 10px;
-    background-color: rgb(11, 182, 182);
-    color: white;
-    border: none;
+    background-color: hsl(180, 100%, 35%);
+    transform: scale(1.05);
 }
 
 @media (max-width: 767px) {

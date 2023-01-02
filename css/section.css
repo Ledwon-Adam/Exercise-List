@@ -1,3 +1,11 @@
+.flex__containerList{
+    display: flex;
+    flex-direction: row;
+    max-width: 1000px;
+    margin: 0 auto;
+    margin-bottom: 2px;
+}
+
 .section__listName {
     margin-top: 9px;
     background-color: white;
@@ -5,8 +13,8 @@
     max-width: 1000px;
     margin: 0 auto;
     font-family: "Lato", sans-serif;
-    line-height: 1.5;
-    margin-bottom: 2px;
+    line-height: 1.5; 
+    flex-basis:60%;
 }
 
 .section__list {
@@ -19,3 +27,34 @@
     font-family: "Lato", sans-serif;
     line-height: 1.5;
 }
+
+.section__button {
+    align-items: flex-end;
+    justify-content: flex-end;
+    background-color: rgb(255, 255, 255);
+    color: hsl(180, 100%, 25%);
+    border: none;
+    font-size: 110%;
+    transition: 1s;
+    padding: 10px;
+    flex-basis: 20%;
+}
+
+.section__button:hover {
+    color: hsl(180, 100%, 35%);
+}
+
+@media (max-width: 767px) {
+    .flex__containerList {
+        flex: 1 0 0;
+        flex-wrap: wrap;
+        justify-content: center;
+    }
+    .section__listName {
+        flex-basis: 100%;
+    }
+    .section__button {
+        flex-basis: 100%;
+    }
+}
+
