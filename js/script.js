@@ -19,6 +19,7 @@
     };
 
     const toogleTaskDone = (taskIndex) => {
+        //tasks = tasks.map 
         tasks[taskIndex].done = !tasks[taskIndex].done;
         render();
     };
@@ -64,16 +65,31 @@
         document.querySelector(".js-tasks").innerHTML = htmlString;        
     };
 
-    const renderButtons = () => {};
+    // const renderButtons = () => {};
 
-    const bindButtonsEvents = () => {};
+
+    // const bindButtonsEvents = () => {   
+    //     const button__hide = document.querySelectorAll(".js-hideButton");
+    //     const list__itemHide = document.querySelectorAll(".list__item--done");
+
+    //     hideButton.forEach((hideButton) => {
+    //         hideButton.addEventListener("click", () => {
+    //             list__itemHide.classList.toggle("list__item--doneHide");
+    //             if (list__itemHide.classList.contains("list__item--doneHide")) {
+    //                 button__hide.innerText = "Pokaż ukończone";
+    //             } else {
+    //                 button__hide.innerText = "Ukryj ukończone";
+    //             };
+    //         });    
+    //     });
+    // };    
 
     const render = () => {
         renderTasks();
-        renderButtons();
+      //  renderButtons();
         bindRemoveEvents();
         bindToggleDoneEvents();
-        bindButtonsEvents();
+      //  bindButtonsEvents();
     };
 
     const onFormSubmit = (event) => {
@@ -84,7 +100,7 @@
 
         if (newTaskContent === "") {
             return;
-        }
+        };
 
         addNewTask(newTaskContent);
         newTaskElement.value = "";    

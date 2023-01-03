@@ -36,8 +36,9 @@
     border: none;
     font-size: 110%;
     transition: 1s;
-    padding: 10px;
+    padding: 5px;
     flex-basis: 20%;
+    text-decoration: l
 }
 
 .section__button:hover {
