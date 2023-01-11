@@ -1,9 +1,11 @@
-.flex__containerList{
+.section__header {
     display: flex;
     flex-direction: row;
+    background-color: white;
     max-width: 1000px;
     margin: 0 auto;
     margin-bottom: 2px;
+    flex-wrap: nowrap;
 }
 
 .section__listName {
@@ -13,8 +15,8 @@
     max-width: 1000px;
     margin: 0 auto;
     font-family: "Lato", sans-serif;
-    line-height: 1.5; 
-    flex-basis:60%;
+    line-height: 1.5;
+    flex-basis: 100%;
 }
 
 .section__list {
@@ -29,16 +31,20 @@
 }
 
 .section__button {
-    align-items: flex-end;
-    justify-content: flex-end;
     background-color: rgb(255, 255, 255);
     color: hsl(180, 100%, 25%);
     border: none;
     font-size: 110%;
     transition: 1s;
-    padding: 5px;
-    flex-basis: 20%;
-    text-decoration: l
+    padding: 10px;
+    cursor: pointer;
+    line-height: 1.5;
+    white-space: nowrap;
+}
+
+.section__buttons {
+    display: flex;
+    flex-basis: 40%;
 }
 
 .section__button:hover {
@@ -46,14 +52,20 @@
 }
 
 @media (max-width: 767px) {
-    .flex__containerList {
+    .section__header {
         flex: 1 0 0;
         flex-wrap: wrap;
         justify-content: center;
     }
+
     .section__listName {
         flex-basis: 100%;
     }
+
+    .section__buttons {
+        flex-wrap: wrap;
+    }
+
     .section__button {
         flex-basis: 100%;
     }

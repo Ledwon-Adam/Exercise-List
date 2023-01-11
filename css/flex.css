@@ -22,6 +22,7 @@
     flex-basis: 20%;
     font-size: 110%;
     transition: 1s;
+    cursor:pointer;
 }
 
 .flex__button:hover {
@@ -49,3 +50,4 @@
     }
 
 }
+

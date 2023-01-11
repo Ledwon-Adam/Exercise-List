@@ -27,11 +27,9 @@
     word-break: break-word;
 }
 
-/* .list__item--doneHide {
-    text-decoration: line-through;
-    word-break: break-word;
+.list__item--doneHide {
     display: none;
-} */
+}
 
 .list__button--remove {
     height: 30px;
@@ -40,6 +38,7 @@
     color: white;
     border: 1px;
     transition: 1s;
+    cursor: pointer;
 }
 
 .list__button--remove:hover {
@@ -53,8 +52,10 @@
     color: white;
     border: 1px;
     transition: 1s;
+    cursor: pointer;
 }
 
 .list__button--done:hover {
     background-color: hsl(120, 100%, 35%);
 }
+
