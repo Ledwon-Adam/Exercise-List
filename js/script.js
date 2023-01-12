@@ -10,9 +10,9 @@
         render();
     };
     // tu coś takiego ale lepiej to ogarnąć do zrobienia // funkcja zaznaczająca wszystkie zadania jako ukończone
-    const doneTasks = (tasks) => tasks.done;
-    const allDoneTasks = tasks.map (doneTasks);
-    
+    // const doneTasks = (tasks) => tasks.done;
+    // const allDoneTasks = tasks.map (doneTasks);
+
     const removeTask = (taskIndex) => { // funkcja usuwająca zadania
         tasks = [
             ...tasks.slice(0, taskIndex),
@@ -55,18 +55,23 @@
     };
 
     const bindButtonsEvents = () => {
-        if (tasks > 0){
+        if (tasks.length > 0){
             const doneAllTasks = document.querySelector(".js-allDoneButton");
-            doneAllTasks.addEventListener("click", () => {
-            console.log("mam przycisk");
+            doneAllTasks((allDoneTask) => {
+                allDoneTask.addEventListener("click", () => { 
+                    allDoneTasks(tasks);
+                });
+            });
+
+            const hideTasksDone = document.querySelector(".js-hideButton");
+            hideTasksDone((toogleHideTaskDone, index) => {
+                hideTasksDone.addEventListener("click", () => {
+                    toogleHideTaskDone(index);
+                });
             });
         }; 
     };
-        // doneAllTasks((doneAllTasks, task) => {
-        //     doneAllTasks.addEventListener("click", () => {
-        //         allDoneTasks(task);
-        //     });
-        // });
+        
      //funkcje kliknięcia, jedna powinna przyjmować zaznaczenie wszystkiego na done a druga funkcji ukrywania, zablokować przycisk jak wszystko jest done        do zrobienia
 
     const renderTasks = () => {   //funkcja renderująca task - jak jest coś nowego go dodaje, jak nie nic nie robi
