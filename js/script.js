@@ -9,9 +9,11 @@
         ];
         render();
     };
-    // tu coś takiego ale lepiej to ogarnąć do zrobienia // funkcja zaznaczająca wszystkie zadania jako ukończone
-    // const doneTasks = (tasks) => tasks.done;
-    // const allDoneTasks = tasks.map (doneTasks);
+    
+    const allDoneTasks = (tasks) => {
+        tasks.map (task => task.done = true);
+        render();
+    };
 
     const removeTask = (taskIndex) => { // funkcja usuwająca zadania
         tasks = [
@@ -57,18 +59,24 @@
     const bindButtonsEvents = () => {
         if (tasks.length > 0){
             const doneAllTasks = document.querySelector(".js-allDoneButton");
-            doneAllTasks((allDoneTask) => {
-                allDoneTask.addEventListener("click", () => { 
-                    allDoneTasks(tasks);
-                });
-            });
+            
+            doneAllTasks.addEventListener("click", () => { 
+                allDoneTasks(tasks);
 
-            const hideTasksDone = document.querySelector(".js-hideButton");
-            hideTasksDone((toogleHideTaskDone, index) => {
-                hideTasksDone.addEventListener("click", () => {
-                    toogleHideTaskDone(index);
-                });
-            });
+            const isWholeTasksDone = tasks.every (({done}) => done);
+                const doneAllTasks = document.querySelector(".js-allDoneButton");
+                if (isWholeTasksDone === true) {
+                    console.log("jest");
+                    doneAllTasks.disabled = true;
+                }
+            });     
+        
+            // const hideTasksDone = document.querySelector(".js-hideButton");
+            // hideTasksDone((toogleHideTaskDone, index) => {
+            //     hideTasksDone.addEventListener("click", () => {
+            //         toogleHideTaskDone(index);
+            //     });
+            // });
         }; 
     };
         
