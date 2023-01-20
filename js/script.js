@@ -34,13 +34,8 @@
         render();
     };
     
-    const toogleHideTaskDone = (task, taskIndex) => {//funckja przełącza hideDoneTasks
-        if (task.done === true) {
-            tasks = tasks.map((task, index) => index === taskIndex ? ({
-                ...task,
-                hideDoneTasks: !task.hideDoneTasks,
-            }) : task);
-        }
+    const toogleHideTaskDone = () => {//funckja przełącza hideDoneTasks
+        hideDoneTasks = !hideDoneTasks,
         render();
     };
 
@@ -82,28 +77,13 @@
             const hideTasksDone = document.querySelector(".js-hideButton");
             hideTasksDone.addEventListener("click", () => {
                 toogleHideTaskDone();
+                console.log(hideDoneTasks);
             });
         };
     };
 
     const renderTasks = () => {   //funkcja renderująca task - jak jest coś nowego go dodaje, jak nie nic nie robi
         let htmlString = "";
-        if ( hideDoneTasks === true ) {
-            for (const task of tasks) {
-                htmlString += `
-                <li class = "list__disabled">
-                <button class = "js-done list__button--done">
-                ${task.done ? "✔" : ""}
-                </button>
-                <span class = "list__item${task.done ? " list__item--done" : ""}">
-                ${task.content}
-                </span>
-                <button class = "js-remove list__button--remove">🗑</button>
-                </li>
-                `;
-            };
-            document.querySelector(".js-tasks").innerHTML = htmlString;
-        }
 
         for (const task of tasks) {
             htmlString += `
