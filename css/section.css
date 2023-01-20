@@ -51,6 +51,10 @@
     color: hsl(180, 100%, 35%);
 }
 
+.section__button:disabled {
+    color: hsl(0, 0%, 80%)
+}
+
 @media (max-width: 767px) {
     .section__header {
         flex: 1 0 0;

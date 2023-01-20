@@ -9,9 +9,12 @@
         ];
         render();
     };
-    
-    const allDoneTasks = (tasks) => {
-        tasks.map (task => task.done = true);
+
+    const allDoneTasks = () => {   // funkcja zaznaczająca wszysko na done
+        tasks = tasks.map((task) => ({
+            ...task,
+            done: true,
+        }));
         render();
     };
 
@@ -24,14 +27,19 @@
     };
 
     const toogleTaskDone = (taskIndex) => { // funkcja która przypisuje zadania do done albo nie
-        //tasks = tasks.map do zrobienia
-        tasks[taskIndex].done = !tasks[taskIndex].done;
+        tasks = tasks.map((task, index) => index === taskIndex ? ({
+            ...task,
+            done: !task.done,
+         }) : task);
         render();
     };
-
-    const toogleHideTaskDone = (taskIndex) => { //tu też będzie map pewnie do zrobienia
-        if (tasks[taskIndex].done) {            //funkcja która ukrywa/odkrywa task -                                            w trakcie prac
-            hideDoneTasks[taskIndex].done = !hideDoneTasks[taskIndex].done;
+    
+    const toogleHideTaskDone = (task, taskIndex) => {//funckja przełącza hideDoneTasks
+        if (task.done === true) {
+            tasks = tasks.map((task, index) => index === taskIndex ? ({
+                ...task,
+                hideDoneTasks: !task.hideDoneTasks,
+            }) : task);
         }
         render();
     };
@@ -56,34 +64,46 @@
         });
     };
 
-    const bindButtonsEvents = () => {
-        if (tasks.length > 0){
+    const bindButtonsEvents = () => {  //funkcje kliknięcia, jedna powinna przyjmować zaznaczenie wszystkiego na done a druga funkcji ukrywania, zablokować przycisk jak wszystko jest done        do zrobienia
+
+        if (tasks.length > 0) {
             const doneAllTasks = document.querySelector(".js-allDoneButton");
-            
-            doneAllTasks.addEventListener("click", () => { 
+
+            doneAllTasks.addEventListener("click", () => {
                 allDoneTasks(tasks);
 
-            const isWholeTasksDone = tasks.every (({done}) => done);
+                const isWholeTasksDone = tasks.every(({ done }) => done);
                 const doneAllTasks = document.querySelector(".js-allDoneButton");
                 if (isWholeTasksDone === true) {
-                    console.log("jest");
                     doneAllTasks.disabled = true;
                 }
-            });     
-        
-            // const hideTasksDone = document.querySelector(".js-hideButton");
-            // hideTasksDone((toogleHideTaskDone, index) => {
-            //     hideTasksDone.addEventListener("click", () => {
-            //         toogleHideTaskDone(index);
-            //     });
-            // });
-        }; 
+            });
+
+            const hideTasksDone = document.querySelector(".js-hideButton");
+            hideTasksDone.addEventListener("click", () => {
+                toogleHideTaskDone();
+            });
+        };
     };
-        
-     //funkcje kliknięcia, jedna powinna przyjmować zaznaczenie wszystkiego na done a druga funkcji ukrywania, zablokować przycisk jak wszystko jest done        do zrobienia
 
     const renderTasks = () => {   //funkcja renderująca task - jak jest coś nowego go dodaje, jak nie nic nie robi
         let htmlString = "";
+        if ( hideDoneTasks === true ) {
+            for (const task of tasks) {
+                htmlString += `
+                <li class = "list__disabled">
+                <button class = "js-done list__button--done">
+                ${task.done ? "✔" : ""}
+                </button>
+                <span class = "list__item${task.done ? " list__item--done" : ""}">
+                ${task.content}
+                </span>
+                <button class = "js-remove list__button--remove">🗑</button>
+                </li>
+                `;
+            };
+            document.querySelector(".js-tasks").innerHTML = htmlString;
+        }
 
         for (const task of tasks) {
             htmlString += `
@@ -102,7 +122,7 @@
     };
 
     const renderButtons = () => {  // funkcja dodająca przyciski w zależności czy jest jakieś zadanie czy nie
-        let htmlString = tasks < 1 ?  "" :
+        let htmlString = tasks < 1 ? "" :
         `<button class = "section__button js-hideButton"> Ukryj ukończone </button> 
         <button class = "section__button js-allDoneButton"> Ukończ wszystkie </button>`;
         document.querySelector(".js-buttons").innerHTML = htmlString;
