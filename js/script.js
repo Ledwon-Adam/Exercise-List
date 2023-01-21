@@ -2,7 +2,7 @@
     let tasks = [];
     let hideDoneTasks = false;
 
-    const addNewTask = (newTaskContent) => { // funkcja dodająca zadania
+    const addNewTask = (newTaskContent) => { //funkcja dodająca zadania
         tasks = [
             ...tasks,
             { content: newTaskContent },
@@ -10,7 +10,7 @@
         render();
     };
 
-    const allDoneTasks = () => {   // funkcja zaznaczająca wszysko na done
+    const allDoneTasks = () => {   //funkcja zaznaczająca wszysko na done
         tasks = tasks.map((task) => ({
             ...task,
             done: true,
@@ -18,7 +18,7 @@
         render();
     };
 
-    const removeTask = (taskIndex) => { // funkcja usuwająca zadania
+    const removeTask = (taskIndex) => { //funkcja usuwająca zadania
         tasks = [
             ...tasks.slice(0, taskIndex),
             ...tasks.slice(taskIndex + 1),
@@ -26,7 +26,7 @@
         render();
     };
 
-    const toogleTaskDone = (taskIndex) => { // funkcja która przypisuje zadania do done albo nie
+    const toogleTaskDone = (taskIndex) => { //funkcja która przypisuje zadania do done albo nie
         tasks = tasks.map((task, index) => index === taskIndex ? ({
             ...task,
             done: !task.done,
@@ -49,7 +49,7 @@
         });
     };
 
-    const bindToggleDoneEvents = () => { // funkcja kliknięcia, i znajdująca task po indeksie która przyjmuje funkcje przypisującą zadania do done albo nie.
+    const bindToggleDoneEvents = () => { //funkcja kliknięcia, i znajdująca task po indeksie która przyjmuje funkcje przypisującą zadania do done albo nie.
         const toggleDoneButtons = document.querySelectorAll(".js-done");
 
         toggleDoneButtons.forEach((toogleDoneButton, index) => {
@@ -87,7 +87,7 @@
 
         for (const task of tasks) {
             htmlString += `
-            <li class = "list">
+            <li class = "${hideDoneTasks===true && task.done? " list__disabled" : "list"}">
             <button class = "js-done list__button--done">
             ${task.done ? "✔" : ""}
             </button>
@@ -101,14 +101,14 @@
         document.querySelector(".js-tasks").innerHTML = htmlString;
     };
 
-    const renderButtons = () => {  // funkcja dodająca przyciski w zależności czy jest jakieś zadanie czy nie
+    const renderButtons = () => {  //funkcja dodająca przyciski w zależności czy jest jakieś zadanie czy nie
         let htmlString = tasks < 1 ? "" :
-        `<button class = "section__button js-hideButton"> Ukryj ukończone </button> 
+        `<button class = "section__button js-hideButton"> ${hideDoneTasks===false ? "Ukryj ukończone" : "Pokaż ukończone"} </button> 
         <button class = "section__button js-allDoneButton"> Ukończ wszystkie </button>`;
         document.querySelector(".js-buttons").innerHTML = htmlString;
     };
 
-    const render = () => { // funkcja render - odświeżająca jakby wszystko przy każdym wykonaniu czegoś
+    const render = () => { //funkcja render - odświeżająca jakby wszystko przy każdym wykonaniu czegoś
         renderTasks();
         renderButtons();
         bindRemoveEvents();
@@ -116,7 +116,7 @@
         bindButtonsEvents();
     };
 
-    const onFormSubmit = (event) => { // funkcja sprawdzająca czy dane zadanie zawiera jakies znaki, oczyszcza-trim daje ona też focus, i wywoluje funkcje dzieki ktorej dodaje juz "dopieszczone" zadanie
+    const onFormSubmit = (event) => { //funkcja sprawdzająca czy dane zadanie zawiera jakies znaki, oczyszcza-trim daje ona też focus, i wywoluje funkcje dzieki ktorej dodaje juz "dopieszczone" zadanie
         event.preventDefault();
         const newTaskElement = document.querySelector(".js-newTask");
         const newTaskContent = newTaskElement.value.trim();
@@ -130,7 +130,7 @@
         newTaskElement.value = "";
     };
 
-    const init = () => { // funkcja początkowa która ogarnia form i dzięki temu wszystko rederuje przyjmując render
+    const init = () => { //funkcja początkowa która ogarnia form i dzięki temu wszystko rederuje przyjmując render
         render();
 
         const form = document.querySelector(".js-form");
