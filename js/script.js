@@ -60,7 +60,6 @@
     };
 
     const bindButtonsEvents = () => {    //funkcje kliknięcia, jedna powinna przyjmować zaznaczenie wszystkiego na done a druga funkcji ukrywania, zablokować przycisk jak wszystko jest done        do zrobienia
-
         if (tasks.length > 0) {
             const doneAllTasks = document.querySelector(".js-allDoneButton");
 
@@ -86,15 +85,15 @@
 
         for (const task of tasks) {
             htmlString += `
-            <li class = "${hideDoneTasks === true && task.done ? "list__disabled" : "list"}">
-            <button class = "js-done list__button--done">
-            ${task.done ? "✔" : ""}
-            </button>
-            <span class = "list__item${task.done ? "list__item--done" : ""}">
-            ${task.content}
-            </span>
-            <button class = "js-remove list__button--remove">🗑</button>
-            </li>
+                <li class = "${hideDoneTasks === true && task.done ? "list__disabled" : "list"}">
+                    <button class = "js-done list__button--done">
+                        ${task.done ? "✔" : ""}
+                    </button>
+                    <span class = "list__item${task.done ? "list__item--done" : ""}">
+                        ${task.content}
+                    </span>
+                    <button class = "js-remove list__button--remove">🗑</button>
+                </li>
             `;
         };
         document.querySelector(".js-tasks").innerHTML = htmlString;
@@ -102,8 +101,12 @@
 
     const renderButtons = () => {    //funkcja dodająca przyciski w zależności czy jest jakieś zadanie czy nie
         let htmlString = tasks < 1 ? "" : `
-        <button class = "section__button js-hideButton"> ${hideDoneTasks === false ? "Ukryj ukończone" : "Pokaż ukończone"} </button> 
-        <button class = "section__button js-allDoneButton"> Ukończ wszystkie </button>
+            <button class = "section__button js-hideButton">
+                ${hideDoneTasks === false ? "Ukryj" : "Pokaż"} ukończone
+            </button> 
+            <button class = "section__button js-allDoneButton">
+                Ukończ wszystkie 
+            </button>
         `;
         document.querySelector(".js-buttons").innerHTML = htmlString;
     };
