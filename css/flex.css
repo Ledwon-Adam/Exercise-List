@@ -35,7 +35,6 @@
         flex: 1 0 0;
         flex-wrap: wrap;
         justify-content: center;
-
     }
 
     .flex__button {
@@ -48,6 +47,5 @@
         height: 37px;
         margin-right: 0px;
     }
-
 }
 
