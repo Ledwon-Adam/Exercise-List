@@ -2,7 +2,7 @@
     let tasks = [];
     let hideDoneTasks = false;
 
-    const addNewTask = (newTaskContent) => {    //funkcja dodająca zadania
+    const addNewTask = (newTaskContent) => {    
         tasks = [
             ...tasks,
             { content: newTaskContent },
@@ -10,7 +10,7 @@
         render();
     };
 
-    const allDoneTasks = () => {    //funkcja zaznaczająca wszysko na done
+    const markAllDoneTasks = () => {    
         tasks = tasks.map((task) => ({
             ...task,
             done: true,
@@ -18,7 +18,7 @@
         render();
     };
 
-    const removeTask = (taskIndex) => {    //funkcja usuwająca zadania
+    const removeTask = (taskIndex) => {    
         tasks = [
             ...tasks.slice(0, taskIndex),
             ...tasks.slice(taskIndex + 1),
@@ -26,7 +26,7 @@
         render();
     };
 
-    const toogleTaskDone = (taskIndex) => {    //funkcja która przypisuje zadania do done albo nie
+    const toogleTaskDone = (taskIndex) => {    
         tasks = tasks.map((task, index) => index === taskIndex ? ({
             ...task,
             done: !task.done,
@@ -34,12 +34,12 @@
         render();
     };
 
-    const toogleHideTaskDone = () => {    //funckja przełącza hideDoneTasks
+    const toogleHideTaskDone = () => {    
         hideDoneTasks = !hideDoneTasks,
             render();
     };
 
-    const bindRemoveEvents = () => {    //funkcja usuwająca zadanie
+    const bindRemoveEvents = () => {    
         const removeButtons = document.querySelectorAll(".js-remove");
 
         removeButtons.forEach((removeButtons, index) => {
@@ -49,7 +49,7 @@
         });
     };
 
-    const bindToggleDoneEvents = () => {    //funkcja kliknięcia, i znajdująca task po indeksie która przyjmuje funkcje przypisującą zadania do done albo nie.
+    const bindToggleDoneEvents = () => {    
         const toggleDoneButtons = document.querySelectorAll(".js-done");
 
         toggleDoneButtons.forEach((toogleDoneButton, index) => {
@@ -59,12 +59,12 @@
         });
     };
 
-    const bindButtonsEvents = () => {    //funkcje kliknięcia, jedna powinna przyjmować zaznaczenie wszystkiego na done a druga funkcji ukrywania, zablokować przycisk jak wszystko jest done        do zrobienia
+    const bindButtonsEvents = () => {          
         if (tasks.length > 0) {
             const doneAllTasks = document.querySelector(".js-allDoneButton");
 
             doneAllTasks.addEventListener("click", () => {
-                allDoneTasks(tasks);
+                markAllDoneTasks(tasks);
 
                 const isWholeTasksDone = tasks.every(({ done }) => done);
                 const doneAllTasks = document.querySelector(".js-allDoneButton");
@@ -80,12 +80,12 @@
         };
     };
 
-    const renderTasks = () => {    //funkcja renderująca task - jak jest coś nowego go dodaje, jak nie nic nie robi
+    const renderTasks = () => {   
         let htmlString = "";
 
         for (const task of tasks) {
             htmlString += `
-                <li class = "${hideDoneTasks === true && task.done ? "list__disabled" : "list"}">
+                <li class = "${hideDoneTasks && task.done ? "list__disabled" : "list"}">
                     <button class = "js-done list__button--done">
                         ${task.done ? "✔" : ""}
                     </button>
@@ -99,7 +99,7 @@
         document.querySelector(".js-tasks").innerHTML = htmlString;
     };
 
-    const renderButtons = () => {    //funkcja dodająca przyciski w zależności czy jest jakieś zadanie czy nie
+    const renderButtons = () => {    
         let htmlString = tasks < 1 ? "" : `
             <button class = "section__button js-hideButton">
                 ${hideDoneTasks === false ? "Ukryj" : "Pokaż"} ukończone
@@ -111,7 +111,7 @@
         document.querySelector(".js-buttons").innerHTML = htmlString;
     };
 
-    const render = () => {    //funkcja render - odświeżająca jakby wszystko przy każdym wykonaniu czegoś
+    const render = () => {   
         renderTasks();
         renderButtons();
         bindRemoveEvents();
@@ -119,7 +119,7 @@
         bindButtonsEvents();
     };
 
-    const onFormSubmit = (event) => {    //funkcja sprawdzająca czy dane zadanie zawiera jakies znaki, oczyszcza-trim daje ona też focus, i wywoluje funkcje dzieki ktorej dodaje juz "dopieszczone" zadanie
+    const onFormSubmit = (event) => {    
         event.preventDefault();
         const newTaskElement = document.querySelector(".js-newTask");
         const newTaskContent = newTaskElement.value.trim();
@@ -133,7 +133,7 @@
         newTaskElement.value = "";
     };
 
-    const init = () => {    //funkcja początkowa która ogarnia form i dzięki temu wszystko rederuje przyjmując render
+    const init = () => {   
         render();
 
         const form = document.querySelector(".js-form");

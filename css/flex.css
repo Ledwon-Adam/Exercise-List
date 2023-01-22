@@ -21,7 +21,7 @@
     border: none;
     flex-basis: 20%;
     font-size: 110%;
-    transition: 1s;
+    transition: 0.6s;
     cursor:pointer;
 }
 
