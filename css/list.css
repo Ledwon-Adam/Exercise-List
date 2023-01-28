@@ -20,14 +20,6 @@
 
 .list__disabled {
     display:none;
-    grid-template-columns: auto 1fr auto;
-    border-bottom: solid rgb(240, 240, 240);
-    text-decoration: none;
-    padding: 10px;
-    grid-gap: 20px;
-    align-items: center;
-    margin-left: -43px;
-    padding-top: -55px;
 }
 
 .list__item {
