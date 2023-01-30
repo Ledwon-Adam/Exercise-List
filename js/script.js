@@ -65,20 +65,9 @@
 
             doneAllTasks.addEventListener("click", () => {
                 markAllDoneTasks(tasks);
-
-                const isWholeTasksDone = tasks.every(({ done }) => done);
-                const doneAllTasks = document.querySelector(".js-allDoneButton");
-                if (isWholeTasksDone === true) {
-                    doneAllTasks.disabled = true;
-                }
-            });
-
-            const hideTasksDone = document.querySelector(".js-hideButton");
-            hideTasksDone.addEventListener("click", () => {
-                toogleHideTaskDone();    
             });
         };
-    };
+    }        
 
     const renderTasks = () => {   
         let htmlString = "";
@@ -104,11 +93,30 @@
             <button class = "section__button js-hideButton">
                 ${hideDoneTasks === false ? "Ukryj" : "Pokaż"} ukończone
             </button> 
-            <button class = "section__button js-allDoneButton">
-                Ukończ wszystkie 
-            </button>
+            <button class = "section__button js-allDoneButton" ${
+                tasks.every(({ done }) => done) ? 'disabled' : ''
+            }> Ukończ wszystkie </button>
         `;
         document.querySelector(".js-buttons").innerHTML = htmlString;
+        
+        if (tasks.length > 0) {
+            const doneAllTasks = document.querySelector(".js-allDoneButton");
+
+            doneAllTasks.addEventListener("click", () => {
+                markAllDoneTasks(tasks);
+
+                const isWholeTasksDone = tasks.every(({ done }) => done);
+                const doneAllTasks = document.querySelector(".js-allDoneButton");
+                if (isWholeTasksDone === true) {
+                    doneAllTasks.disabled = true;
+                }
+            });
+
+            const hideTasksDone = document.querySelector(".js-hideButton");
+            hideTasksDone.addEventListener("click", () => {
+                toogleHideTaskDone();    
+            });
+        };
     };
 
     const render = () => {   
